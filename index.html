@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФК Бочан - официальный сайт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">ФК БОЧАН</div>
+        <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="news.html">Новости</a>
+        <a href="matches.html">Матчи</a>
+        <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <section class="banner">
+        <h1>Футбольный клуб "Бочан"</h1>
+        <p>Официальный сайт команды. Следите за нашими матчами, новостями и достижениями!</p>
+    </section>
+    <div class="content">
+        
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <!-- Активная ссылка (замените на свою реальную) -->
+            <a href="https://t.me/FCbochan" onclick="checkLink(event, this)">Telegram</a>
+            
+            <!-- Неактивные ссылки -->
+            <a href="#" onclick="checkLink(event, this)">VK</a>
+            <a href="#" onclick="checkLink(event, this)">Instagram</a>
+            <a href="#" onclick="checkLink(event, this)">YouTube</a>
+        </div>
+        <p>© 2023 ФК "Бочан". Все права защищены.</p>
+    </footer>
+
+    <div class="notification" id="notification">Извините, пока не завели</div>
+
+    <script>
+        // Объект с информацией о доступности соцсетей
+        const socialAvailability = {
+            'https://t.me/FCbochan': true,  // Telegram активен
+            '#': false  // Остальные пока не активны
+        };
+
+        function checkLink(event, element) {
+            // Если ссылка ведет на "#" или неактивна
+            if (element.href === '#' || !socialAvailability[element.href]) {
+                event.preventDefault(); // Отменяем переход
+                showNotification();
+            }
+            // Если ссылка активна - переход произойдет автоматически
+        }
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            
+            // Показываем уведомление
+            notification.classList.add('show');
+            
+            // Скрываем через 3 секунды
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
